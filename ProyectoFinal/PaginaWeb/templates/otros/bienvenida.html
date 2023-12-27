@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<div>
+    <section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+        <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h2>INICIO</h2>
+
+                    {% if user.is_authenticated %}
+                        <h3 style="color: white;">{{ mensaje_bienvenida }}</h3>
+                        {% if avatar_url %}
+                            <img src="{{ avatar_url }}" alt="Avatar" height="100">
+                        {% endif %}
+                        
+                        <!-- Puedes agregar más detalles del usuario aquí -->
+                    {% else %}
+                        <h3 style="color: white;">{{ mensaje }}</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>    
+    </section>
+</div>
+{% endblock %}

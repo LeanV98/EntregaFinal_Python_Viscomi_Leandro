@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Registro {% endblock %}
+{% block navbar %}
+  
+{% endblock %}
+
+{% block content %}
+    <section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
+        <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h2>REGISTRO</h2>
+
+                    <form action="" method="POST" style="color: white;" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Regístrate</button>
+                        <br><br>
+                        <button ><a href="{% url 'Inicio' %}" style="color:black ;">Regresar</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    <style>
+        /* Agrega un estilo específico para ocultar el footer en esta página */
+        .hidden-footer {
+            display: none;
+        }
+    </style>
+
+    <footer id="footer" class="hidden-footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <!-- Contenido del footer... -->
+    </footer>
+{% endblock %}

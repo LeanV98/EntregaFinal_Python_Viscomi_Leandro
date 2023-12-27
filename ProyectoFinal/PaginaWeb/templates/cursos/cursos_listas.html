@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>LISTA Cursos</h2>
+                <h3> <a href="{% url 'NuevoCurso' %}">Nuevo Curso</a></h3>
+                <br>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <ul>
+                    {% for curso in cursos %}
+                        <li style="color: white;font-size: 20px;">Nombre: {{ curso.nombre }}
+                            <p>
+                                <a href="{% url 'DetalleCurso' curso.pk %}">Ver Curso</a>
+                                <span style="font-size: 15; margin-right:10px; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'EditarCurso' curso.pk %}">Editar Curso</a>
+                                <span style="font-size: 15px; margin: right 10px;; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'BorrarCurso' curso.pk %}">Borrar Curso</a>
+                            </p>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>    
+</section>
+{% endblock %}

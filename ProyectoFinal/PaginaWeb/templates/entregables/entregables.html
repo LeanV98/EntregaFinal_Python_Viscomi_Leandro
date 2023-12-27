@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Entregables {% endblock %}
+
+
+{% block content %}
+
+<section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>ENTRGABLES</h2>
+
+               <h4 style="color: white;"> Complete el formulario debajo para agregar nuevos Entregables </h4>
+            </div>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}
+
+{% block footer %} 
+
+<form action="/entregables/" method="post">
+    {% csrf_token %} 
+    <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;">Nombre: <input type="text" name="nombre"></h4>
+    <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;">Fecha Entrega: <input type="date" name="fecha_entrega"></h4>
+    <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;">Entregado (responda Si o No): <input type="text" name="entregado"></h4>
+    
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}

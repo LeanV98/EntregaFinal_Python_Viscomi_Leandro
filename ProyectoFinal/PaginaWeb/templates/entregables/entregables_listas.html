@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>LISTA Entregables</h2>
+                <h3> <a href="{% url 'NuevoEntregable' %}">Nuevo Entregable</a></h3>
+                <br>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <ul>
+                    {% for entregables in entregable %}
+                        <li style="color: white;font-size: 20px;">Nombre: {{ entregables.nombre }}
+                            <p>
+                                <a href="{% url 'DetalleEntregable' entregables.pk %}">Ver Entregable</a>
+                                <span style="font-size: 15; margin-right:10px; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'EditarEntregable' entregables.pk %}">Editar Entregable</a>
+                                <span style="font-size: 15px; margin: right 10px;; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'BorrarEntregable' entregables.pk %}">Borrar Entregable</a>
+                            </p>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>    
+</section>
+{% endblock %}

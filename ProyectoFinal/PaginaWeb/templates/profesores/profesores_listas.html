@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>LISTA Profesores</h2>
+                <h3> <a href="{% url 'NuevoProfesor' %}">Nuevo Profesor</a></h3>
+                <br>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <ul>
+                    {% for profesor in profesores %}
+                        <li style="color: white;font-size: 20px;">Nombre: {{ profesor.nombre }},{{ profesor.apellido}}
+                            <p>
+                                <a href="{% url 'DetalleProfesor' profesor.pk %}">Ver Profesor</a>
+                                <span style="font-size: 15; margin-right:10px; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'EditarProfesor' profesor.pk %}">Editar Profesor</a>
+                                <span style="font-size: 15px; margin: right 10px;; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'BorrarProfesor' profesor.pk %}">Borrar Profesor</a>
+                            </p>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>    
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>Formulario - Editar Perfil</h2>
+                <h2>De {{ usuario }}</h2>
+
+                <form action="" method="POST" style="color: white;" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table>
+                        {{ miFormulario }}
+                    </table>
+                    <br>
+                    <input type="submit" value="Enviar">
+                </form>
+                <br><br>
+                <button>
+                    <a class="btn navbar-brand" href="{% url 'CambiarContrasenia' %}">Cambiar Contraseña</a>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

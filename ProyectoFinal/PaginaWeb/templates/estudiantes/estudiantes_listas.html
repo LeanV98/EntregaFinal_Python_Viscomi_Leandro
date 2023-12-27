@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>LISTA Estudiantes</h2>
+                <h3> <a href="{% url 'NuevoEstudiante' %}">Nuevo Estudiante</a></h3>
+                <br>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <ul>
+                    {% for estudiante in estudiantes %}
+                        <li style="color: white;font-size: 20px;">Nombre: {{ estudiante.nombre }},{{ estudiante.apellido}}
+                            <p>
+                                <a href="{% url 'DetalleEstudiante' estudiante.pk %}">Ver Estudiante</a>
+                                <span style="font-size: 15; margin-right:10px; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'EditarEstudiante' estudiante.pk %}">Editar Estudiante</a>
+                                <span style="font-size: 15px; margin: right 10px;; margin-left: 10px ;color: white;">|</span>
+                                <a href="{% url 'BorrarEstudiante' estudiante.pk %}">Borrar Estudiante</a>
+                            </p>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>    
+</section>
+{% endblock %}

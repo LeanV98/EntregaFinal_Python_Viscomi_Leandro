@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Cursos {% endblock %}
+
+
+{% block content %}
+
+<section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>CURSOS</h2>
+                <br>
+                <h4 style="color: white;"> Complete el formulario debajo para agregar nuevos cursos </h4>
+                <br>
+                <h5 style="color: white;"> Tambien puede buscar cursos con su numero de comicion </h5>
+            </div>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}
+
+{% block footer %} 
+
+<div>
+    {% if mi_formulario.errors %}
+    <P style="color: red;">Estan mal los datos, revisar</P>
+    {% endif %}
+
+
+    <form action="/cursos/"   method="post">
+        {% csrf_token %} 
+        <table>
+               
+            <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;" for="{{ mi_formulario.nombre.id_for_label }}">Nombre:</h4>
+            <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;">{{ mi_formulario.nombre }}</h4>
+           
+            <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;" for="{{ mi_formulario.nombre.id_for_label }}">Comision:</h4>
+            <h4 style="color: rgb(23, 23, 54); text-align: center; margin-left: 50px;"></th4>{{ mi_formulario.comision }}</h4>
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Borrar Cursos {% endblock %}
+
+
+{% block content %}
+
+<section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>BORRAR Cursos</h2>
+
+                <form action="" method="POST" style="color: white;">
+                    {% csrf_token %}
+                    Estas seguro que deseas borrar el curso {{curso.nombre}} - comision {{curso.comision}} ?
+                    <br>
+                    <input type="submit" value="Eliminar">
+                </form>
+                <br><br>
+                <h4><a href="{% url 'ListaCurso' %}">Regresar</a></h4>
+
+            </div>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}

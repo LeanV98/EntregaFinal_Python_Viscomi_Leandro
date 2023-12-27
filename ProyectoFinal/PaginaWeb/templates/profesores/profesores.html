@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Profesores {% endblock %}
+
+
+{% block content %}
+
+<section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>PROFESORES</h2>
+
+                <h4 style="color: white;">Complete el formulario debajo para agregar nuevos Profesores</h4>
+            </div>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}
+
+{% block footer %} 
+
+<form action="/profesores/"   method="post" >
+    {% csrf_token %} 
+    
+    <h4 style="color: rgb(23, 23, 54); text-align: center;margin-left: 50px ">Nombre: <input type="text" name="nombre"></h4>
+    <h4 style="color: rgb(23, 23, 54); text-align: center;margin-left: 50px ">Apellido: <input type="text" name="apellido"></h4>
+    <h4 style="color: rgb(23, 23, 54); text-align: center;margin-left: 50px ">Email: <input type="email" name="email" style="width: 280px; border: 1px solid #696969"></h4>
+    <h4 style="color: rgb(23, 23, 54); text-align: center;margin-left: 50px ">Profesion: <input type="text" name="profesion"></h4>
+    <input type="submit" value="Enviar">
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+<section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-8">
+                <h2>DETALLE CURSOS</h2>
+
+                <h4 style="color: white;">Nombre del curso: <i>{{curso.nombre}}</i></h4>
+                <h4 style="color: white;">Comision: <i>{{curso.comision}}</i></h4>
+                <br><br>
+                <h4><a href="{% url 'ListaCurso' %}">Regresar</a></h4>
+
+            </div>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}
